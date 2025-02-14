@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi San Valentín?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffe6e6;
+        }
+        .container {
+            margin-top: 100px;
+            position: relative;
+        }
+        h1 {
+            color: #d63384;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .yes {
+            background-color: #ff4d4d;
+            color: white;
+        }
+        .no {
+            background-color: #666;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Manuela, ¿quieres ser mi San Valentín? 💖</h1>
+        <button class="yes" onclick="respuestaSi()">Sí</button>
+        <button class="no" id="noBtn" onmouseover="moverNo()">No</button>
+    </div>
+
+    <script>
+        let mensajes = ["Piénsalo 🤔", "¿Segura? 🥺", "No me hagas esto 😢", "Dame una oportunidad 💕"];
+        let contador = 0;
+
+        function respuestaSi() {
+            alert("¡Sabía que dirías que sí! ❤️😍");
+        }
+
+        function moverNo() {
+            let botonNo = document.getElementById("noBtn");
+            let anchoVentana = window.innerWidth - 100;
+            let altoVentana = window.innerHeight - 50;
+            
+            let nuevaX = Math.random() * anchoVentana;
+            let nuevaY = Math.random() * altoVentana;
+
+            botonNo.style.left = nuevaX + "px";
+            botonNo.style.top = nuevaY + "px";
+
+            botonNo.innerText = mensajes[contador % mensajes.length];
+            contador++;
+        }
+    </script>
+</body>
+</html>
